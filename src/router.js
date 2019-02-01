@@ -4,13 +4,13 @@ import Router from 'vue-router'
 // import {mapGetters} from 'vuex';
 // import store from '@/store';
 
-const xiaozhangpage = (resolve) => {
-  import('./pages/xiaozhang-page.vue').then((module) => {
+const page1 = (resolve) => {
+  import('./pages/page1.vue').then((module) => {
     resolve(module);
   })
 }
-const jiazhangpage = (resolve) => {
-  import('./pages/jiazhang-page.vue').then((module) => {
+const page2 = (resolve) => {
+  import('./pages/page2.vue').then((module) => {
     resolve(module);
   })
 }
@@ -18,29 +18,29 @@ Vue.use(Router)
 
 let routes = [{
     path: '/',
-    redirect: '/xiaozhang-page',
+  redirect: '/page1',
     meta: {}
   },
-  //校长页面
+  //page1
   {
-    path: '/xiaozhang-page',
-    name: 'xiaozhang-page',
-    component: xiaozhangpage,
+    path: '/page2',
+    name: 'page2',
+    component: page2,
     meta: {
-      title: '校长page',
+      title: 'page2',
       keepAlive: false,
     }
   },
-  //家长页面
+  //page1
   {
-    path: '/jiazhang-page',
-    name: 'jiazhang-page',
-    component: jiazhangpage,
+    path: '/page1',
+    name: 'page1',
+    component: page1,
     meta: {
-      title: '家长page',
+      title: 'page1',
       keepAlive: false,
     }
-  }
+  },
 ]
 
 // 给routes中成员加上index
@@ -68,28 +68,28 @@ router.beforeEach((to, from, next) => {
     sessionStorage.setItem(c, to.query[c]);
   })
 
-  if (from.name === 'children' && to.name === 'login') {
-    // 如果没有退出登录的情况下进入login，则跳children页
-    if (sessionStorage.getItem("quitstatus") === 'false') {
-      next(false);
-      return;
-    }
-  }
+  // if (from.name === 'children' && to.name === 'login') {
+  //   // 如果没有退出登录的情况下进入login，则跳children页
+  //   if (sessionStorage.getItem("quitstatus") === 'false') {
+  //     next(false);
+  //     return;
+  //   }
+  // }
 
-  if (from.name === 'login' && to.name === 'children') {
-    // 如果退出登录后要进children
-    if (sessionStorage.getItem("quitstatus") === 'true') {
-      // 已经退出登录，就跳登录页
-      next(false)
-      return;
-    }
-  }
+  // if (from.name === 'login' && to.name === 'children') {
+  //   // 如果退出登录后要进children
+  //   if (sessionStorage.getItem("quitstatus") === 'true') {
+  //     // 已经退出登录，就跳登录页
+  //     next(false)
+  //     return;
+  //   }
+  // }
 
-  if (to.query.state == 0) {
-    // 登录页
-    next('./login');
-    return;
-  }
+  // if (to.query.state == 0) {
+  //   // 登录页
+  //   next('./login');
+  //   return;
+  // }
 
   next();
 })

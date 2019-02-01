@@ -1,6 +1,6 @@
 <template>
     <div>
-        家长page
+        page1
     </div>
 </template>
 
