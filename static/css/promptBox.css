@@ -1,0 +1,109 @@
+/*
+*弹出框样式
+*/
+.prompt-box-wraper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 2000;
+  display: none;
+}
+
+.prompt-box-wraper .loading-img {
+  height: 3rem;
+  width: 3rem;
+}
+
+.prompt-box-wraper .auto-hide-text {
+  box-sizing: border-box;
+  max-width: 90%;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.prompt-box-wraper .prompt-box {
+  width: 80%;
+  padding-bottom: 0.5rem;
+  border: 1px solid #d3c9f5;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.prompt-box-wraper .prompt-box .prompt-title {
+  height: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  background-color: #e0e0e0;
+}
+
+.prompt-box-wraper .prompt-box .prompt-text {
+  box-sizing: border-box;
+  line-height: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem 1rem;
+  color: #666;
+}
+
+.prompt-box-wraper .prompt-box .prompt-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.prompt-box-wraper .prompt-box .prompt-btns .prompt-btn-same-style {
+  display: block;
+  height: 100%;
+  width: 40%;
+  padding: 0.5rem 0;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.prompt-box-wraper .prompt-box .prompt-btns .prompt-cancle-btn {
+  background-color: #b5b4b4;
+}
+
+.prompt-box-wraper .prompt-box .prompt-btns .prompt-confirm-btn {
+  background-color: #ff4939;
+}
+
+.scale-animation {
+  animation-name: scale;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
